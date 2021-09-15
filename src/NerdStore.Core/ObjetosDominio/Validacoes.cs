@@ -6,17 +6,17 @@ namespace NerdStore.Core.ObjetosDominio
     {
         public static void ValidarSeIgual(object objeto1, object objeto2, string mensagem)
         {
-            if (!objeto1.Equals(objeto2))
+            if (objeto1.Equals(objeto2))
                 throw new ExcecaoDominio(mensagem);
         }
 
         public static void ValidarSeDiferente(object objeto1, object objeto2, string mensagem)
         {
-            if (objeto1.Equals(objeto2))
+            if (!objeto1.Equals(objeto2))
                 throw new ExcecaoDominio(mensagem);
         }
 
-        public static void ValidarCaracteres(string valor, int maximo, string mensagem)
+        public static void ValidarTamanho(string valor, int maximo, string mensagem)
         {
             var tamanho = valor.Trim().Length;
 
@@ -24,7 +24,7 @@ namespace NerdStore.Core.ObjetosDominio
                 throw new ExcecaoDominio(mensagem);
         }
 
-        public static void ValidarCaracteres(string valor, int minimo, int maximo, string mensagem)
+        public static void ValidarTamanho(string valor, int minimo, int maximo, string mensagem)
         {
             var tamanho = valor.Trim().Length;
 
@@ -82,39 +82,39 @@ namespace NerdStore.Core.ObjetosDominio
                 throw new ExcecaoDominio(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(long valor, long minimo, string mensagem)
+        public static void ValidarSeMenorQue(long valor, long minimo, string mensagem)
         {
-            if (valor <= minimo)
+            if (valor < minimo)
                 throw new ExcecaoDominio(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(double valor, double minimo, string mensagem)
+        public static void ValidarSeMenorQue(double valor, double minimo, string mensagem)
         {
-            if (valor <= minimo)
+            if (valor < minimo)
                 throw new ExcecaoDominio(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(decimal valor, decimal minimo, string mensagem)
+        public static void ValidarSeMenorQue(decimal valor, decimal minimo, string mensagem)
         {
-            if (valor <= minimo)
+            if (valor < minimo)
                 throw new ExcecaoDominio(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(int valor, int minimo, string mensagem)
+        public static void ValidarSeMenoQue(int valor, int minimo, string mensagem)
         {
-            if (valor <= minimo)
+            if (valor < minimo)
                 throw new ExcecaoDominio(mensagem);
         }
 
         public static void ValidarSeFalso(bool valor, string mensagem)
         {
-            if (valor)
+            if (!valor)
                 throw new ExcecaoDominio(mensagem);
         }
 
         public static void ValidarSeVerdadeiro(bool valor, string mensagem)
         {
-            if (!valor)
+            if (valor)
                 throw new ExcecaoDominio(mensagem);
         }
     }
