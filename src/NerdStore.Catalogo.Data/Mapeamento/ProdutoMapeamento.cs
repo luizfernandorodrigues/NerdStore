@@ -27,6 +27,17 @@ namespace NerdStore.Catalogo.Data.Mapeamento
                 .HasColumnName("Descricao")
                 .IsRequired(true);
 
+            builder.Property(p => p.Valor)
+                .HasColumnName("Valor")
+                .HasColumnType("DECIMAL(19,5)")
+                .HasDefaultValue(0)
+                .IsRequired(true);
+
+            builder.Property(p => p.Ativo)
+                .HasColumnType("BIT")
+                .HasColumnName("Ativo")
+                .IsRequired(true);
+
             builder.OwnsOne(p => p.Dimensoes, dimensao =>
               {
                   dimensao.Property(d => d.Altura)
