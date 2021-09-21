@@ -1,5 +1,6 @@
 ﻿using NerdStore.Catalogo.Application.Dto;
 using NerdStore.Catalogo.Domain;
+using System;
 
 namespace NerdStore.Catalogo.Application.Converter
 {
@@ -20,6 +21,9 @@ namespace NerdStore.Catalogo.Application.Converter
                     produtoDto.Largura,
                     produtoDto.Profundidade)
                 );
+
+            if (produtoDto.Id != Guid.Empty)
+                produto.Id = produtoDto.Id;
 
             return produto;
         }

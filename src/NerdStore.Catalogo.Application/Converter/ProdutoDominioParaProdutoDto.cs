@@ -21,13 +21,7 @@ namespace NerdStore.Catalogo.Application.Converter
                 QuantidadeEstoque = produto.QuantidadeEstoque,
                 Altura = produto.Dimensoes.Altura,
                 Largura = produto.Dimensoes.Largura,
-                Profundidade = produto.Dimensoes.Profundidade,
-                CategoriaDto = new CategoriaDto
-                {
-                    Id = produto.Categoria.Id,
-                    Codigo = produto.Categoria.Codigo,
-                    Nome = produto.Categoria.Nome
-                }
+                Profundidade = produto.Dimensoes.Profundidade
             };
 
             return produtoDto;
