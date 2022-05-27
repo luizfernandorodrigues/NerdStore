@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NerdStore.Catalogo.Data;
+using NerdStore.Vendas.Data;
 using NerdStore.WebApp.MVC.Data;
 using NerdStore.WebApp.MVC.Setup;
 
@@ -31,6 +32,7 @@ namespace NerdStore.WebApp.MVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddDbContext<CatalogoContexto>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<VendasContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMediatR(typeof(Startup));

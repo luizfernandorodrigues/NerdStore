@@ -10,7 +10,7 @@ using NerdStore.Catalogo.Data;
 namespace NerdStore.Catalogo.Data.Migrations
 {
     [DbContext(typeof(CatalogoContexto))]
-    [Migration("20210921013417_Inicial")]
+    [Migration("20220527025641_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,8 @@ namespace NerdStore.Catalogo.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
+                        .HasColumnName("Ativo")
+                        .HasColumnType("BIT");
 
                     b.Property<Guid>("CategoriaId")
                         .HasColumnType("uniqueidentifier");
@@ -75,7 +76,10 @@ namespace NerdStore.Catalogo.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Valor")
+                        .HasColumnType("DECIMAL(19,5)")
+                        .HasDefaultValue(0m);
 
                     b.HasKey("Id");
 

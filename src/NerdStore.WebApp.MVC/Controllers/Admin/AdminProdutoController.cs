@@ -45,7 +45,7 @@ namespace NerdStore.WebApp.MVC.Controllers.Admin
         [Route("produtos-atualizar-estoque")]
         public async Task<IActionResult> AtualizarEstoque(Guid id)
         {
-            return View("Estoque", await _produtoServicoAplicacao.ObterPorID(id));
+            return View("Estoque", await _produtoServicoAplicacao.ObterPorId(id));
         }
 
         [HttpPost]
@@ -64,14 +64,14 @@ namespace NerdStore.WebApp.MVC.Controllers.Admin
         [Route("editar-produto")]
         public async Task<IActionResult> AtualizarProduto(Guid id)
         {
-            return View(await PopularCategorias(await _produtoServicoAplicacao.ObterPorID(id)));
+            return View(await PopularCategorias(await _produtoServicoAplicacao.ObterPorId(id)));
         }
 
         [HttpPost]
         [Route("editar-produto")]
         public async Task<IActionResult> AtualizarProduto(Guid id, ProdutoDto produtoDto)
         {
-            var produto = await _produtoServicoAplicacao.ObterPorID(id);
+            var produto = await _produtoServicoAplicacao.ObterPorId(id);
 
             produtoDto.QuantidadeEstoque = produto.QuantidadeEstoque;
             produtoDto.DataCadastro = produto.DataCadastro;

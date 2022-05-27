@@ -58,7 +58,7 @@ namespace NerdStore.Catalogo.Application.Servicos
             return listaProduto.ToList().Converter();
         }
 
-        public async Task<ProdutoDto> ObterPorID(Guid id)
+        public async Task<ProdutoDto> ObterPorId(Guid id)
         {
             var produto = await _produtoRepositorio.ObterPorId(id);
 
